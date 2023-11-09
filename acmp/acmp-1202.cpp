@@ -1,2 +1,0 @@
-#include <bits/stdc++.h>
-using namespace std; int main () { int n, m; cin >> n >> m; int from, to; vector < int >graph[n]; while (cin >> from >> to) { graph[--from].push_back(to); } cout<<n<<endl; for (int i = 0; i < n; i++) { sort(graph[i].begin(),graph[i].end()); cout << graph[i].size () << " "; for (int j = 0; j < graph[i].size (); j++) { cout << graph[i][j] << " "; } cout << endl; } return 0; }
