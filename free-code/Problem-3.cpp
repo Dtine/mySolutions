@@ -150,18 +150,35 @@ int main()
     mp.set(5,6);
     mp.set(10,11);
     mp.set(15,16);
-    cout<<mp.get(5)<<endl;
-    cout<<mp.get(10)<<endl;
-    cout<<mp.get(15)<<endl;
+    cout<<mp.get(5)<<endl; // >> 5 6
+    cout<<mp.get(10)<<endl; // >> 10 11
+    cout<<mp.get(15)<<endl; // >> 15 16
+    cout<<mp.get(20)<<endl; // >> 20 ?  >> 20 0
+    /*
+        6
+        11
+        16
+        0
+    */
+    mp.set(20,21); // >> 20 21
     cout<<mp.get(20)<<endl;
-    mp.set(20,21);
-    cout<<mp.get(20)<<endl;
-    mp.set(26,27);
+    /*
+        21
+    */
+    mp.set(26,27); // >> 26 27
     cout<<mp.get(5)<<endl;
     cout<<mp.get(10)<<endl;
     cout<<mp.get(15)<<endl;
     cout<<mp.get(20)<<endl;
     cout<<mp.get(26)<<endl;
+    
+    /*                    до фикса бага выводило:
+        6                 0
+        11                0
+        16                0
+        21                0
+        27                27
+    */
 
 
 
