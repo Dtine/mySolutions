@@ -119,7 +119,7 @@ class hash_map
         buckets[index] = head;
         return;
     }
-    Name get(Key key)
+    Name& get(Key key)
     {
         size_t index = hash<Key>{}(key);
         index%=bucket_size;
