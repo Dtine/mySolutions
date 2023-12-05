@@ -4,19 +4,25 @@ using namespace std;
 
 class Solution {
 public:
-    int maxCoins(vector<int>& piles) {
-        sort(piles.begin(),piles.end());
-        int ans = 0;
-        int last_index = piles.size()-1;
-        int bob_index = 0;
-        while(bob_index!=last_index)
+    int a(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        int m = matrix[0].size();
+        int ans = INT_MIN;
+        for(int i = 0; i < n; i++)
         {
-            int alice = piles[last_index];
-            int me = piles[last_index-1];
-            int bob = piles[bob_index];
-            last_index-=2;
-            bob_index++;
-            ans+=me;
+            for(int j = 0; j < m; j++)
+            {
+                if(matrix[i][j] != 0&&i>0)
+                {
+                    matrix[i][j] += matrix[i-1][j];
+                }
+            }
+        sort(matrix[i].begin(),matrix[i].end(),greater());
+        auto k = matrix[i];
+        for(int j = 0;j<m;j++)
+        {
+            ans=max(ans,k[j]*(j+1));
+        }
         }
         return ans;
     }
@@ -25,8 +31,8 @@ public:
 int main()
 {
     Solution s;
-    vector<int> piles={2,4,1,2,7,8};
-    cout<<s.maxCoins(piles);
+    vector<vector<int>> piles={{0,1,0},{1,1,1},{1,1,0}};
+    cout<<s.a(piles);
 
     return 0;
 }
