@@ -25,7 +25,7 @@ class str_queue{
         this->__size = n;
         __curr_size = 0;
     }
-    void add(int num)
+    void add(T num)
     {
         if(__size != __curr_size)
         {
